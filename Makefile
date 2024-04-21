@@ -15,3 +15,4 @@ test: run
 
 clean:
 	rm -f lexer.cmi lexer.cmo main.cmi main.cmo parser.cmi parser.cmo ast.cmi ast.cmo ast_print.cmi ast_print.cmo main lexer.ml parser.ml
+
