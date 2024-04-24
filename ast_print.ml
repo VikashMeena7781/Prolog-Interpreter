@@ -14,8 +14,8 @@ let rec string_of_term = function
       "Prolist(" ^ "Head of List :- [" ^ String.concat "; " (List.map string_of_term head) ^ "]" ^ ", Tail of List :- [" ^ String.concat "; " (List.map string_of_term tail) ^ "])"
   | Comparasion (t1, op, t2) ->
     "Comparasion(" ^ op ^ "(" ^ string_of_term t1 ^ ", " ^ string_of_term t2 ^ "))" 
-  | NotEqOp(t1,t2) ->
-    "Atomic_Formula_NOT(" ^ t1 ^ ", " ^ string_of_term t2 ^ ")"     
+  (* | NotEqOp(t1,t2) ->
+    "Atomic_Formula_NOT(" ^ t1 ^ ", " ^ string_of_term t2 ^ ")"      *)
 
 
 let rec string_of_atomic_formula = function
@@ -23,10 +23,10 @@ let rec string_of_atomic_formula = function
       "Atomic_Formula(" ^ p ^ ", [" ^ String.concat "; " (List.map string_of_term terms) ^ "])"
   | FunctionForm_Is (t1, t2) ->
     "Atomic_Formula(" ^  string_of_term t1 ^ "; IS; " ^ string_of_term t2 ^ ")"
+  | NotEqOp(t1,t2) ->
+    "Atomic_Formula_NOT(" ^ t1 ^ ", [" ^ String.concat "; " (List.map string_of_term t2) ^ "])"
   (* | NotEqOp(t1,t2) ->
-    "Atomic_Formula_NOT(" ^ t1 ^ ", [" ^ String.concat "; " (List.map string_of_atomic_formula t2) ^ "])" *)
-  (* | NotEqOp_1(t1,t2) ->
-    "Atomic_Formula_NOT(" ^ t1 ^ ", " ^ string_of_atomic_formula t2 ^ ")" *)
+    "Atomic_Formula_NOT(" ^ t1 ^ ", " ^ string_of_term t2 ^ ")" *)
   | Reserved_Keyword_Fail(t1) ->
     "FAILS(" ^ t1 ^ ")"
   

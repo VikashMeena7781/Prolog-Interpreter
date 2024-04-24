@@ -48,7 +48,7 @@ atomic_formula:
   EXCLAIM      {Exclaim($1)}
   | CONS LPAREN term_list RPAREN { FunctionForm($1, $3) }
   | term IS term   {FunctionForm_Is($1,$3)}
-  // | NOT atomic_formula        {NotEqOp_1("+/", $2) }
+  | NOT CONS LPAREN term_list RPAREN  {NotEqOp($2, $4) }
   // | NOT LPAREN atomic_formula_list RPAREN    { NotEqOp("+/", $3) }
   | FAIL             {Reserved_Keyword_Fail("fail")}
   
@@ -63,4 +63,4 @@ term:
   | LBRACE term_list RBRACE { Prolist($2) }
   | LBRACE term_list Vertical_Line term_list RBRACE   {Prolist_2($2,$4)}
   | term ComOp term        { Comparasion($1, $2, $3) }
-  | NOT term        {NotEqOp("+/", $2) }
+  // | NOT term        {NotEqOp("+/", $2) }

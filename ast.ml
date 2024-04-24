@@ -6,12 +6,12 @@ type term =
   | Prolist of term list
   | Prolist_2 of term list * term list
   | Comparasion of term * string * term
-  | NotEqOp of string * term
+  (* | NotEqOp of string * term *)
 
 type atomic_formula =
   | FunctionForm of string * term list
   | FunctionForm_Is of term * term
-  (* | NotEqOp of string * atomic_formula list *)
+  | NotEqOp of string * term list 
   (* | NotEqOp_1 of string * atomic_formula *)
   | Reserved_Keyword_Fail of string
   | Exclaim of string
