@@ -1,3 +1,4 @@
-add(X,Y).
-samp(A,B,C) :- A is B + C , add(A,B).
-?-samp(A,4,1).
+add(2,3).
+fact(0,1).
+fact(A,B) :- fact(A - 2,B - 2), add(A,B).
+?- fact(2,3).

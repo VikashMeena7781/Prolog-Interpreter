@@ -4,6 +4,7 @@ type term =
   | FunctionTerm of string * term list
   | Arithmetic of term * string * term
   | Prolist of term list
+  | Any
   | Prolist_2 of term list * term list
   | Comparasion of term * string * term
   (* | NotEqOp of string * term *)
